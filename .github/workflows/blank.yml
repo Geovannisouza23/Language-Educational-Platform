@@ -1,0 +1,59 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main", "develop", "uat" ]
+  pull_request:
+    branches: [ "main", "develop", "uat" ]
+
+
+jobs:
+  ci:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout do código
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Go (se usar Go)
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+
+      # 3️⃣ Build e Test Go
+      - name: Go build
+        if: hashFiles('go.mod') != ''
+        run: |
+          go mod download
+          go build ./...
+
+      - name: Go test
+        if: hashFiles('go.mod') != ''
+        run: |
+          go test ./... -v
+
+      # 4️⃣ Setup .NET (se usar C#)
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      # 5️⃣ Build e Test C#
+      - name: Restore .NET dependencies
+        if: hashFiles('*.sln') != ''
+        run: dotnet restore
+
+      - name: Build .NET
+        run: dotnet build --no-restore --configuration Release
+
+      - name: Test .NET
+        run: dotnet test --no-build --verbosity normal
+
+      # 6️⃣ Docker build 
+      - name: Docker build
+        run: |
+          docker build -t myapp:ci .
+
