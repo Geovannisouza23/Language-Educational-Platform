@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: language-platform
+  labels:
+    name: language-platform

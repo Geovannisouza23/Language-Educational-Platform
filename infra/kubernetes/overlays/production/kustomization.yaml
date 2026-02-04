@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: language-platform
+
+bases:
+  - ../../base
+
+patchesStrategicMerge:
+  - replica-patch.yaml
+
+configMapGenerator:
+  - name: env-config
+    literals:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=info
+
+secretGenerator:
+  - name: auth-secrets
+    envs:
+      - secrets.env
+  - name: user-secrets
+    envs:
+      - secrets.env
+
+images:
+  - name: ghcr.io/language-platform/auth-service
+    newTag: latest
+  - name: ghcr.io/language-platform/user-service
+    newTag: latest
