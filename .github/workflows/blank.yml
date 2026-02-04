@@ -2,9 +2,10 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ "main", "develop" ]
+    branches: [ "main", "develop", "uat" ]
   pull_request:
-    branches: [ "main", "develop" ]
+    branches: [ "main", "develop", "uat" ]
+
 
 jobs:
   ci:
@@ -24,11 +25,13 @@ jobs:
 
       # 3️⃣ Build e Test Go
       - name: Go build
+        if: hashFiles('go.mod') != ''
         run: |
           go mod download
           go build ./...
 
       - name: Go test
+        if: hashFiles('go.mod') != ''
         run: |
           go test ./... -v
 
@@ -40,6 +43,7 @@ jobs:
 
       # 5️⃣ Build e Test C#
       - name: Restore .NET dependencies
+        if: hashFiles('*.sln') != ''
         run: dotnet restore
 
       - name: Build .NET
