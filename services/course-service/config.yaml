@@ -1,0 +1,6 @@
+environment: development
+port: "8080"
+log_level: info
+database_url: "postgres://postgres:postgres@postgres:5432/courses_db?sslmode=disable"
+redis_url: "redis:6379"
+jwt_secret: "your-super-secret-key-change-in-production"
