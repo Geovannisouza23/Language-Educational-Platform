@@ -1,0 +1,91 @@
+# General
+.DS_Store
+*.log
+*.swp
+*.swo
+*~
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+.vs/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+vendor/
+bin/
+dist/
+
+# .NET
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+*.user
+*.userosscache
+*.suo
+*.cache
+*.dbmdl
+*.jfm
+*.pfx
+*.publishsettings
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.next/
+out/
+build/
+dist/
+
+# React Native
+*.orig.*
+web-build/
+.expo/
+.expo-shared/
+
+# Docker
+*.pid
+*.seed
+*.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+Thumbs.db
+ehthumbs.db
+
+# Testing
+coverage/
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Secrets
+secrets/
+*.pem
+*.key
+*.crt
