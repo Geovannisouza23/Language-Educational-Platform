@@ -14,14 +14,14 @@ Complete Language Learning Platform with 8 microservices, web & mobile frontends
 git clone <repo-url> && cd user.api
 
 # Copy environment template
-cp .env.example .env.production
+cp config/env/.env.example config/env/.env.production
 
 # Generate secure secrets
 export JWT_SECRET=$(openssl rand -hex 64)
 export DB_PASSWORD=$(openssl rand -base64 32)
 
 # Edit production config
-nano .env.production
+nano config/env/.env.production
 ```
 
 ### 2. Configure SendGrid
@@ -122,7 +122,7 @@ CNAME www            -> yourdomain.com
 1. Go to https://marketplace.zoom.us
 2. Create Server-to-Server OAuth app
 3. Get Account ID, Client ID, Client Secret
-4. Add to `.env.production`:
+4. Add to `config/env/.env.production`:
    ```
    ZOOM_ACCOUNT_ID=your-account-id
    ZOOM_CLIENT_ID=your-client-id
@@ -134,7 +134,7 @@ CNAME www            -> yourdomain.com
 1. Go to https://console.agora.io
 2. Create project with "Secured mode"
 3. Get App ID, App Certificate
-4. Add to `.env.production`:
+4. Add to `config/env/.env.production`:
    ```
    AGORA_APP_ID=your-app-id
    AGORA_APP_CERTIFICATE=your-certificate
@@ -143,8 +143,8 @@ CNAME www            -> yourdomain.com
 
 ### Jitsi (Free)
 1. Use public: `JITSI_DOMAIN=meet.jit.si`
-2. Or self-host: Follow VIDEO_SETUP.md
-3. Add to `.env.production`:
+2. Or self-host: Follow docs/VIDEO_SETUP.md
+3. Add to `config/env/.env.production`:
    ```
    JITSI_DOMAIN=meet.jit.si
    VIDEO_PROVIDER=jitsi
@@ -183,11 +183,11 @@ export SENDGRID_API_KEY="SG.xxx"
 ./scripts/setup-sendgrid.sh
 
 # 3. Script will create email templates and return IDs
-# 4. Add IDs to .env.production
+# 4. Add IDs to config/env/.env.production
 ```
 
 ### Manual Template Creation
-See detailed guide in DEPLOYMENT.md
+See detailed guide in docs/DEPLOYMENT.md
 
 ---
 
@@ -377,7 +377,7 @@ npm install
 npm run build
 
 # Deploy with PM2
-pm2 start ecosystem.config.js
+pm2 start ../../config/ecosystem.config.js
 pm2 save
 pm2 startup
 ```
@@ -414,12 +414,12 @@ npm run android
 
 ## 📚 Documentation
 
-- **Full Guide**: DEPLOYMENT.md
-- **Video Setup**: VIDEO_SETUP.md
-- **Checklist**: CHECKLIST.md
+- **Full Guide**: docs/DEPLOYMENT.md
+- **Video Setup**: docs/VIDEO_SETUP.md
+- **Checklist**: docs/CHECKLIST.md
 - **Architecture**: docs/architecture.md
 - **API Docs**: docs/api-contracts.md
-- **Setup Guide**: SETUP.md
+- **Setup Guide**: docs/SETUP.md
 
 ---
 

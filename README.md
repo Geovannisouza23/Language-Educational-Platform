@@ -84,13 +84,10 @@ language-platform/
 - [Contratos de API](docs/api-contracts.md)
 - [Decisões Técnicas](docs/decisions.md)
 
-## 🤝 Contribuição
+## 🗂️ Organização de Arquivos
 
-1. Fork o projeto
-2. Crie uma feature branch
-3. Commit suas mudanças
-4. Push para a branch
-5. Abra um Pull Request
+- Documentacao adicional esta em `docs/`
+- Arquivos de configuracao e solucao estao em `config/`
 
 ## 📝 Licença
 

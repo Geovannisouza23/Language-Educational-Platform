@@ -65,8 +65,8 @@ cd user.api
 
 ### Step 2: Environment Configuration
 ```bash
-cp .env.example .env.production
-nano .env.production
+cp config/env/.env.example config/env/.env.production
+nano config/env/.env.production
 ```
 Required variables:
 - [ ] DATABASE_HOST, DATABASE_PASSWORD
@@ -87,7 +87,7 @@ export ENCRYPTION_KEY=$(openssl rand -hex 32)
 - [ ] JWT_SECRET generated
 - [ ] DB_PASSWORD generated
 - [ ] ENCRYPTION_KEY generated
-- [ ] Secrets added to .env.production
+- [ ] Secrets added to config/env/.env.production
 
 ### Step 4: Setup SendGrid
 ```bash
@@ -152,7 +152,7 @@ cd frontend/web
 npm install
 npm run build
 # Deploy to server
-pm2 start ecosystem.config.js
+pm2 start ../../config/ecosystem.config.js
 ```
 - [ ] Dependencies installed
 - [ ] Build successful

@@ -25,16 +25,16 @@ if ! command -v certbot &> /dev/null; then
 fi
 
 # Load environment
-if [ -f .env.production ]; then
-    source .env.production
+if [ -f config/env/.env.production ]; then
+    source config/env/.env.production
 else
-    echo "❌ .env.production not found"
+    echo "❌ config/env/.env.production not found"
     exit 1
 fi
 
 # Validate domain
 if [ -z "$PRIMARY_DOMAIN" ]; then
-    echo "❌ PRIMARY_DOMAIN not set in .env.production"
+    echo "❌ PRIMARY_DOMAIN not set in config/env/.env.production"
     exit 1
 fi
 

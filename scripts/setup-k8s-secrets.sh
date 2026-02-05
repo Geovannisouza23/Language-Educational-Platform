@@ -21,10 +21,10 @@ if ! kubectl get namespace language-platform &> /dev/null; then
 fi
 
 # Load environment variables
-if [ -f .env.production ]; then
-    source .env.production
+if [ -f config/env/.env.production ]; then
+  source config/env/.env.production
 else
-    echo "❌ .env.production not found"
+  echo "❌ config/env/.env.production not found"
     exit 1
 fi
 

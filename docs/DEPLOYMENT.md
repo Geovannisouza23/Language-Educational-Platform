@@ -39,15 +39,15 @@
 
 ```bash
 # Copy and edit environment files
-cp .env.example .env.production
+cp config/env/.env.example config/env/.env.production
 
 # Generate secure secrets
 export JWT_SECRET=$(openssl rand -hex 64)
 export DB_PASSWORD=$(openssl rand -base64 32)
 export ENCRYPTION_KEY=$(openssl rand -hex 32)
 
-# Edit .env.production with your values
-nano .env.production
+# Edit config/env/.env.production with your values
+nano config/env/.env.production
 ```
 
 Required variables:
@@ -174,7 +174,7 @@ rsync -avz --delete .next/standalone/ user@server:/var/www/app/
 rsync -avz --delete .next/static/ user@server:/var/www/app/.next/static/
 
 # Start with PM2
-pm2 start ecosystem.config.js
+pm2 start ../../config/ecosystem.config.js
 pm2 save
 pm2 startup
 ```

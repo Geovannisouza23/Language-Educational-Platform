@@ -32,7 +32,7 @@ After creating the app, you'll get:
 - Client ID
 - Client Secret
 
-Add to `.env.production`:
+Add to `config/env/.env.production`:
 ```bash
 ZOOM_ACCOUNT_ID=your-account-id
 ZOOM_CLIENT_ID=your-client-id
@@ -94,7 +94,7 @@ You'll receive:
 - Customer ID
 - Customer Secret
 
-Add to `.env.production`:
+Add to `config/env/.env.production`:
 ```bash
 AGORA_APP_ID=your-app-id
 AGORA_APP_CERTIFICATE=your-app-certificate
@@ -433,7 +433,7 @@ sudo tail -f /var/log/jitsi/jvb.log
 
 1. Choose your video provider
 2. Sign up and get credentials
-3. Add credentials to `.env.production`
+3. Add credentials to `config/env/.env.production`
 4. Test video session creation
 5. Integrate frontend SDK
 6. Configure webhooks
